@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { fileSchema } from "@/shared";
+
 
 export const userSchema = z.object({
     userName: z
@@ -15,7 +15,7 @@ export const userSchema = z.object({
         .string()
         .regex(/^[0-9]{10}$/, "El telefono tener 10 digitos"),
     
-    userDocumentType: z.string().min(1, "Debe selecionun tipo de documento"),
+    userDocumentTypes: z.string().min(1, "Debe selecionun tipo de documento"),
 
     userDocumentNumber: z
         .string()
@@ -31,5 +31,5 @@ export const userSchema = z.object({
 
     isStaff:z.boolean(),
     isActive: z.boolean(),
-    isSuperUser: z.boolean
-}) 
+    isSuperUser: z.boolean(),
+});

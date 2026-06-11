@@ -3,8 +3,18 @@
 import { useState,useEffect } from "react"
 import {Input, Select, Checkbox, Button} from "@/shared";
 import { getDocumentTypes } from "@/services/selectService";
+import {useNavigate} from "react-router-dom";
+import { userSchema } from "../shemas/userShemas";
 
 export default function UserRegisterForm (){
+
+    // estado
+
+    //navegacio
+    const navigate = useNavigate();
+
+    //estadodel error
+    const [ errors, setErrors] = useState({})
 
     //estado del formulario
     const[FormData, setFormData]=useState({
@@ -14,7 +24,7 @@ export default function UserRegisterForm (){
         userdocumentType: "",
         userDocumentNumber: "",
         userPassword: "",
-        userImage: [],
+        
 
         isStaff:false,
         isActive: true,
@@ -31,59 +41,60 @@ export default function UserRegisterForm (){
         }))
     }
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-    //     const result = userSchema.safeParse(FormData);
+        const result = userSchema.safeParse(FormData);
 
-    //     if(!result.success){
-    //         const fieldErrors = {};
+        if(!result.success){
+            const fieldErrors = {};
 
-    //         result.error.issues.forEach((issue) => {
+            result.error.issues.forEach((issue) => {
 
-    //             fieldErrors[issue.path[0]] = issue.message;
-    //         });
+                fieldErrors[issue.path[0]] = issue.message;
+            });
 
-    //         setErrors(fieldErrors);
-    //         // Cortamos la ejecucion: NO se envia nada al backend
-    //         return;
-    //     }
+            setErrors(fieldErrors);
+            // Cortamos la ejecucion: NO se envia nada al backend
+            return;
+        }
 
-    //     // Si la validacion pasa, limpiaamos errores previos
-    //     setErrors({});
+        // Si la validacion pasa, limpiaamos errores previos
+        setErrors({});
 
-    //     // Activamos estado de envio (útil para deshabilitar el boton)
-    //     setIsSubmitting(true);
+        // Activamos estado de envio (útil para deshabilitar el boton)
+        // setIsSubmitting(true);
 
-    //     try {
-    //         // LLamamos al s
-    //         // 
-    //         const response = await createStaticRouter(result.data);
+        try {
+            // LLamamos al s
+            // 
+            // const response = await createStaticRouter(result.data);
 
-    //         // 
-    //         alert("Usuario creado correctamente")
-    //         //navigate(-1) equivale a"volver a atras"
-    //         navigate(-1);
-    //     } catch (error) {
-    //         // Capturamos errore de red o errores lanzados por el service
-    //         console.error("Errror", error.message);
+            // console.log("usuario creado", response)
+            // 
+            alert("Usuario creado correctamente")
+            //navigate(-1) equivale a"volver a atras"
+            navigate(-1);
+        } catch (error) {
+            // Capturamos errore de red o errores lanzados por el service
+            console.error("Error", error.message);
 
-    //         // mostramos el mensage del error al usuario
-    //         alert(error.message)
-    //     } finally {
-    //         // Pase lo que pase, desactivamos el estado de envio
-    //         setIsSubmitting(false);
-    //     }
-    // }
-
-    // Handele NameChange
-    const handleNameChange = (e) =>{
-        const value = e.target.value.trim();
-
-        if (value === "") {
-            console.log("el nombre puede no estar vacio ")
+            // mostramos el mensage del error al usuario
+            alert(error.message)
+        } finally {
+            // Pase lo que pase, desactivamos el estado de envio
+            // setIsSubmitting(false);
         }
     }
+
+    // Handele NameChange
+    // const handleNameChange = (e) =>{
+    //     const value = e.target.value.trim();
+
+    //     if (value === "") {
+    //         console.log("el nombre puede no estar vacio ")
+    //     }
+    // }
 
     const [documentTypes, setDocumentTypes] = useState([])
 
@@ -94,48 +105,76 @@ export default function UserRegisterForm (){
 
     return (
         <div className="grid items-center justify-center">
-            <h1 className="mx-auto my-10  text-title font-heading font-bold ">Registro de usuario</h1>
+            <h1 className="mx-auto my-10  text-title font-heading font-bold">
+                Registro de usuario
+            </h1>
             {/* Formulario */}
-            <form action="">
+            <form 
+                action=""
+                onSubmit={handleSubmit}
+            >
+
               <Input
                   label="Nombre"
+                  name="userName"
                   type="text"
+                  value={FormData.userName}
                   placeholder="Escribe tu nombre"
                   htmlFor="user-name"
-                  onChange={handleNameChange}
+                  onChange={handleChange}
+                  error={errors.userName}
                   
                 />
               <Input
                   label="Correo"
+                  name="userEmail"
                   type="email"
+                  value={FormData.userEmail}
                   placeholder="Escribe tu Correo Electrónico"
                   htmlFor="user-email"
+                  onChange={handleChange}
+                  error={errors.userEmail}
                   
                 />
               <Input
                   label="Teléfono"
+                  name="userPhone"
                   type="tel"
+                  value={FormData.userPhone}
                   placeholder="Escribe tu Numero de telefono"
                   htmlFor="user-phone"
+                  onChange={handleChange}
+                  error={errors.userPhone}
                   
                 /> 
                 <Select
                 label="tipos de documento"
-                name="userDocumentypes"
+                name="userDocumentTypes"
+                value={FormData.userName}
                 htmlFor="userDocumenTypes"
                 options={documentTypes}
+                onChange={handleChange}
+                error={errors.userDocumentType}
                 />
                  <Input
                   label="Documento"
+                  name="userDocumentNumber"
                   type="text"
+                  value={FormData.userDocumentNumber}
                   placeholder="Escribe tu número de documento"
                   htmlFor="user-document-number"
+                  onChange={handleChange}
+                  error={errors.userDocumentNumber}
                 />
                  <Input
                   label="Contraseña"
+                  name="userPassword"
                   type="password"
+                  value={FormData.userPassword}
                   placeholder="Escribe tu número de documento"
                   htmlFor="user-password"
+                  onChange={handleChange}
+                  error={errors.userPassword}
                 />
                 {/* Checkbox */}
                 <div className="grid gap-4 my-2"> 
@@ -157,7 +196,7 @@ export default function UserRegisterForm (){
                     id="isActive"
                     name="isAvtive"
                     label="Esta Activo"
-                    checked={FormData.isactivo}
+                    checked={FormData.isActive}
                     onChange={handleChange}
                 />
 

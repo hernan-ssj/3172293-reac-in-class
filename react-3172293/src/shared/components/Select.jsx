@@ -2,6 +2,7 @@
 
 export default function Select ({
     label,
+    error,
     htmlFor,
     name,
     options = [],
@@ -33,7 +34,7 @@ export default function Select ({
                     border
                     px-4
 
-                    hover:border
+                    hover
                     hover:border-2
                     hover:border-focus-border
 
@@ -48,7 +49,9 @@ export default function Select ({
                 ))}
 
             </select>
-            
+            {error && (
+                <p className="text-caption text-red-800 place-content-start mt-1">{error}</p>
+            )}
         </div>
     )
 

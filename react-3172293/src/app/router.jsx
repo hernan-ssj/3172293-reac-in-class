@@ -6,7 +6,7 @@ const router = createBrowserRouter([
 
     {
         path: "/",
-        element: <Navigate to="/dashboard" replace/>,
+        element: <Navigate to="/auth" replace/>,
     },
     {
         path: "/auth",
