@@ -3,7 +3,7 @@
 import { useState,useEffect } from "react"
 import {Input, Select, Checkbox, Button} from "@/shared";
 import { getDocumentTypes } from "@/services/selectService";
-import {useNavigate} from "react-router-dom";
+// import {useNavigate} from "react-router-dom";
 import { userSchema } from "../shemas/userShemas";
 
 export default function UserRegisterForm (){
@@ -11,7 +11,7 @@ export default function UserRegisterForm (){
     // estado
 
     //navegacio
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     //estadodel error
     const [ errors, setErrors] = useState({})
@@ -21,7 +21,7 @@ export default function UserRegisterForm (){
         userName : "",
         userEmail: "",
         userPhone: "",
-        userdocumentType: "",
+        userDocumentTypes: "",
         userDocumentNumber: "",
         userPassword: "",
         
@@ -74,7 +74,7 @@ export default function UserRegisterForm (){
             // 
             alert("Usuario creado correctamente")
             //navigate(-1) equivale a"volver a atras"
-            navigate(-1);
+            // navigate(-1);
         } catch (error) {
             // Capturamos errore de red o errores lanzados por el service
             console.error("Error", error.message);
@@ -150,11 +150,11 @@ export default function UserRegisterForm (){
                 <Select
                 label="tipos de documento"
                 name="userDocumentTypes"
-                value={FormData.userName}
+                value={FormData.userDocumentTypes}
                 htmlFor="userDocumenTypes"
                 options={documentTypes}
                 onChange={handleChange}
-                error={errors.userDocumentType}
+                error={errors.userDocumentTypes}
                 />
                  <Input
                   label="Documento"
