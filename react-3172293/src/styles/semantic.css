@@ -1,0 +1,62 @@
+:root{
+
+/* ===============LIGHT THEME================== */
+
+/* ======BRAND========= */
+
+--semantic-brand: var(--color-primary-800);
+--semantic-brand-hover: var(--color-primary-950); /*Generalmentee es un tono mas alto que el brand*/
+
+--semantic-brand-soft: var(--color-primary-800);
+--semantic-brand-soft-hover: var(--color-primary-800);
+
+
+--semantic-background: var(--color-white);/*Fondo de toda la aplicacion*/
+--semantic-surface: var(--color-gray-400);/*Fondo de modales, cards, containers*/
+--semantic-surface-muted: var(--color-gray-200);/*Zona secundaria, con menos importancia*/
+--semantic-background-inverse: var(--color-gray-800);
+
+/* =============TEXT============= */
+
+--semantic-text-primary: var(--color-gray-900); /*Color principal de lectura, titulos, text base del documento*/
+--semantic-text-secondary: var(--color-gray-700); /*texto dominantes*/
+--semantic-text-muted: var(--color-gray-500); /*texto deshabilitado por ejemplo*/
+--semantic-text-inverse: var(--color-white); /*texto invertido*/
+
+/* =========Border============*/
+
+--semantic-border: var(--color-gray-400); /*Borde principal de todos los componentes*/
+--semantic-border-stronge: var(--color-gray-700); /*Bordes mas fuetes*/
+
+/* =======Focus======= */
+
+--semantic-focus-ring:var(--color-primary-700);
+
+/* ==========STATE=============== */
+
+--semantic-success: var(--color-primary-950);
+--semantic-warning: var(--color-primary-950);
+--semantic-error: var(--color-primary-950);
+
+/*  */
+
+--semantic-font-sixe-h1: var(--fs-lg);
+--semantic-font-sixe-h2: var(--fs-md);
+--semantic-font-sixe-h3: var(--fs-sm);
+--semantic-font-sixe-h3: var(--fs-xs);
+--semantic-font-sixe-h3: var(--fs-xxs);
+--semantic-font-sixe-h3: var(--fs-xxxs);
+--semantic-font-sixe-h3: var(--fs-xxxxs);
+
+/* font wheight */
+
+--semantic-font-weight-heading: var(--font-weight-bold);
+--semantic-font-weight-body: var(--font-weight-regular);
+--semantic-font-weight-label: var(--font-weight-light);
+
+/* ==================================================== */
+/*    
+   YA NO DEPENDEMOS DEL COLOR,DEPENDEOS ES DE INTENCION
+/* ========================================================*/ 
+
+}

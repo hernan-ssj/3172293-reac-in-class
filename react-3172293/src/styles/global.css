@@ -1,0 +1,54 @@
+@import url(tokens.css);
+@import url(semantic.css);
+@import "tailwindcss"; /*Estalinea debe quedar al final para que funcione*/
+
+@theme {
+    /* =======brand======= */
+
+    --color-brand: var(--semantic-brand);
+    --color-brand-hover: var(--semantic-brand-hover);
+    --color-brand-soft: var(--semantic-brand-soft);
+    --color-brand-soft-hover: var(--semantic-brand-soft-hover);
+
+    /* ======Background====== */
+
+    --color-brackground: var(--semantic-background);
+    --color-surface: var(--semantic-surface);
+    --color-surface-muted: var(--semantic-surface-muted);
+    --color-brackground-inverse: var(--semantic-background-inverse);
+
+    /* =========text========= */
+
+    --color-text-primary: var(--semantic-text-primary);
+    --color-text-secondar: var(--semantic-text-secondary);
+    --color-text-muted: var(--semantic-text-muted);
+    --color-text-inverse: var(--semantic-text-inverse);
+
+    /* =========border======= */
+
+    --color-border: var(--semantic-border);
+    --color-border-strong: var(--semantic-border-strong);
+
+    /* =============STATE========== */
+
+    --color-success: var(--semantic-success);
+    --color-warning: var(--semantic-warning);
+    --color-error: var(--semantic-error);
+
+    /* ==========TYPOGRAPHY========== */
+    --text-display: var(--semantic-font-size-display);
+    --text-main: var(--semantic-font-size-h1);
+    --text-title: var(--semantic-font-size-h2);
+    --text-subtitle: var(--semantic-font-size-h3);
+    --text-body: var(--semantic-font-size-body);
+    --text-medium: var(--semantic-font-size-medium);
+    --text-small: var(--semantic-font-size-small);
+    --text-caption: var(--semantic-font-size-caption);
+
+/* =========FONT WEIGHT============= */
+
+    --font-heading: var(--semantic-font-weight-heading);
+    --font-body: var(--semantic-font-weight-body);
+    --font-label: var(--semantic-font-weight-label);
+
+}
