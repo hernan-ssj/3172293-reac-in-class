@@ -73,8 +73,8 @@ export const IconButton =React.forwardRef(function IconButton(
         >
             <span
             style={{
-                width: `${hitSize}px`,
-                height: `${hitSize}px`,
+                width: `${iconSize}px`,
+                height: `${iconSize}px`,
             }}
             >
                 {children}
@@ -82,3 +82,5 @@ export const IconButton =React.forwardRef(function IconButton(
         </button>
     );
 });
+
+export  default IconButton

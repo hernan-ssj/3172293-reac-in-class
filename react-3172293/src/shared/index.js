@@ -1,5 +1,7 @@
 export { default as AuthLayout } from "./layouts/AuthLayout";
 export { default as DashboardLayout } from "./layouts/DashboardLayout";
+export { default as Navbar } from "./layouts/Navbar";
+
 // componentes
 export { default as Input } from "./components/Input";
 export { default as Button } from "./components/Button";
@@ -10,4 +12,5 @@ export { default as CounterEffect } from "./components/CounterEffect";
 export { default as Select } from "./components/Select";
 export { default as Checkbox } from "./components/Checkbox";
 export { default as IconButton } from "./components/IconButton";
+export { default as SearchField } from "./components/SearchField";
 

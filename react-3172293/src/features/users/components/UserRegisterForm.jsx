@@ -1,18 +1,18 @@
 //UserRegisterForm componente para registrar un usuario
 
 import { useState,useEffect } from "react"
-import {Input, Select, Checkbox, Button, IconButton} from "@/shared";
+import {Input, Select, Checkbox, Button,  } from "@/shared";
 import { getDocumentTypes } from "@/services/selectService";
-import {useNavigate} from "react-router-dom";
+// import {useNavigate} from "react-router-dom";
 import { userSchema } from "../shemas/userShemas";
-// import { Square, SquareCode } from "lucide";
+import { User} from "lucide-react";
 
 export default function UserRegisterForm (){
     
     // estado
 
     //navegacio
-    const Navigate = useNavigate();
+    // const Navigate = useNavigate();
 
     //estadodel error
     const [ errors, setErrors] = useState({})
@@ -221,12 +221,11 @@ export default function UserRegisterForm (){
                         onClick={() => console.log ("se oprimio el subit")}
                         >Guardar
                     </Button>
-                    <IconButton>
-                        variant="primary"
-                        onClick= {() => Navigate(-1)}
-                        {/* <SquareCode/> */}
-                    </IconButton>
+                   
                 </div>
+                {/* iconos */}
+                 <User/>
+
                 </form>
               
         </div>
